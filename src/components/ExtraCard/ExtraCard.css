@@ -1,0 +1,9 @@
+.ExtraCard {
+  border: 3px solid blue;
+  margin-bottom: 10px;
+}
+
+.ExtraCard.selected {
+  border: 3px solid red;
+  margin-bottom: 10px;
+}
