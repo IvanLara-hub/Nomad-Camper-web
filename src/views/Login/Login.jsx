@@ -50,16 +50,17 @@ const Login = () => {
     },
   });
 
-  return (
-    <div>
-      <h1>Login</h1>
+  return (  
+    <div className="Login-bg">
+      <div className="Login">
+        <h1>Login</h1>
 
-      <form onSubmit={handleSubmit}>
-        <FormControl
-          text="Email"
-          error={touched.email && errors.email}
-          htmlFor="email"
-        >
+        <form onSubmit={handleSubmit} className="form-container">
+          <div className="text-center d-flex flex-column align-items-center ">
+            <img src="./images/logo-negro.png" style={{ width: "100px" }}></img>
+            <small className="logo text-small pt-2 pb-3">Nomad Camper</small>
+          </div>
+          <label htmlFor="email">Email</label>
           <Input
             id="email"
             name="email"
@@ -69,13 +70,11 @@ const Login = () => {
             error={touched.email && errors.email}
             placeholder="Enter your email..."
           />
-        </FormControl>
+          {touched.email && errors.email && (
+            <div className="text-danger">{errors.email}</div>
+          )}
 
-        <FormControl
-          text="Password"
-          error={touched.password && errors.password}
-          htmlFor="password"
-        >
+          <label htmlFor="password">Password</label>
           <Input
             id="password"
             name="password"
@@ -86,16 +85,19 @@ const Login = () => {
             placeholder="Enter your password..."
             type="password"
           />
-        </FormControl>
+          {touched.password && errors.password && (
+            <div className="text-danger">{errors.password}</div>
+          )}
 
-        <button
-          className="btn btn-primary"
-          type="submit"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </button>
-      </form>
+          <button
+            className="btn btn-primary"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

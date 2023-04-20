@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import ExtraCard from "../../components/ExtraCard/ExtraCard";
 import { getCamperBySlug } from "../../services/CampersService";
+import "./CamperExtras.css"
 
 const CamperExtras = () => {
   const [camper, setCamper] = useState(null);
@@ -49,27 +50,33 @@ const CamperExtras = () => {
 
   return (
     <div>
-      <h1>esta es la vista de los extras.</h1>
-      {camper &&
-        camper.extras.map((extra) => {
-          return (
-            <ExtraCard
-              selected={selectedExtras.find(
-                (selectedExtra) => selectedExtra._id === extra._id
-              )}
-              img={extra.img}
-              name={extra.name}
-              description={extra.description}
-              price={extra.price}
-              key={extra._id}
-              onClickFn={() => handleFinalPrice(extra)}
-            />
-          );
-        })}
-      <h1>total:{finalPrice}€</h1>
+      <h1>Extras</h1>
+      <div className="container">
+        <div className="row">
+          {camper &&
+            camper.extras.map((extra) => {
+              return (
+                <div className="col-md-6 mb-4" key={extra._id}>
+                  <ExtraCard
+                    selected={selectedExtras.find(
+                      (selectedExtra) => selectedExtra._id === extra._id
+                    )}
+                    img={extra.img}
+                    name={extra.name}
+                    description={extra.description}
+                    price={extra.price}
+                    onClickFn={() => handleFinalPrice(extra)}
+                  />
+                </div>
+              );
+            })}
+        </div>
+      </div>
+
+      <h2>Total: {finalPrice}€</h2>
 
       <Button
-        text="Ir a prespuesto"
+        text="Ir a Presupuesto"
         onClickFn={() =>
           navigate("/budget", {
             state: { camper: camper, selectedExtras: selectedExtras },

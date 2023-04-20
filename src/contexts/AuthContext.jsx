@@ -8,6 +8,8 @@ import {
 import { getAccessToken, setAccessToken } from "../stores/AccessTokenStore";
 import { getCurrentUser as getCurrentUserService } from "../services/UserService";
 import { useNavigate } from "react-router-dom";
+import SignupForm from "../views/Signup/Signup";
+
 
 const AuthContext = createContext();
 export default AuthContext;
@@ -54,7 +56,7 @@ export const AuthProvider = ({ children }) => {
       isAuthLoaded, // Si ya intenté saber si hay usuario en sesión
       login, // login
     };
-  }, [currentUser, isAuthLoaded, login]);
+  }, [currentUser, isAuthLoaded, login, SignupForm]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { getCamperBySlug } from "../../services/CampersService";
+import "./CamperDetail.css";
+import { Carousel } from "react-bootstrap";
 
 const CamperDetail = () => {
   const [camper, setCamper] = useState(null);
@@ -12,30 +14,49 @@ const CamperDetail = () => {
   useEffect(() => {
     getCamperBySlug(params.slug)
       .then((camperData) => {
+        console.log("camperData", camperData);
         setCamper(camperData);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div>
+    <div className="CamperDetailCard">
       {camper && (
-        <div>
+        <>
           <h1>{camper.name}</h1>
-          <p>{camper.description}</p>
-          ...
-          <div>
-            <Button
-              text="Configura tus extas"
-              onClickFn={() => navigate(`/campers/${params.slug}/extras`)}
-            />
+          <Carousel>
+            {camper.images.map((image, index) => (
+              <Carousel.Item key={index}>
+                <img className="d-block w-100" src={image} alt={image} />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+  
+          <div className="CamperDetailCard-footer">
+            <div>
+              <ul className="equip-list">
+                {camper.equipment.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+  
+              <p>Price: {camper.price} €</p>
+            </div>
+            <div>
+              <Button
+                text="Configura tu camper"
+                onClickFn={() => navigate(`/campers/${params.slug}/extras`)}
+              />
+            </div>
           </div>
-
-          Este paquete incluye {camper.extras.length} extras
-        </div>
+  
+          <p>Este paquete incluye {camper.extras.length} extras</p>
+        </>
       )}
     </div>
   );
+  
 };
 
 export default CamperDetail;

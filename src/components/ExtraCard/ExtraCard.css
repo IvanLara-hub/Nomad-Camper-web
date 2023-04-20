@@ -1,9 +1,75 @@
-.ExtraCard {
-  border: 3px solid blue;
-  margin-bottom: 10px;
-}
-
 .ExtraCard.selected {
   border: 3px solid red;
   margin-bottom: 10px;
+}
+
+.ExtraCard {
+  background-color: #f1ead8;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 200px;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.ExtraCard:hover {
+  transform: translateY(-5px);
+}
+
+.ExtraCard.selected {
+  background-color: #d6d6d6;
+  border-color: rgb(55, 133, 164);
+}
+
+.ExtraCard__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.ExtraCard img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 10px 0px 0 10px;
+}
+
+.ExtraCard h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ExtraCard p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.ExtraCard__price {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ExtraCard__button {
+  background-color: #d1bfaa;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0px 20px;
+  margin-left: 80px;
+  
 }

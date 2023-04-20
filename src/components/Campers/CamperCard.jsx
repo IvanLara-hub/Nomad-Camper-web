@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
+import "./CamperCard.css";
 
 const CamperCard = ({
   slug,
   category,
   name,
   img,
+  images,
   equipment,
   description,
   compatibleVehicles,
@@ -14,18 +16,19 @@ const CamperCard = ({
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>Category: {category}</p>
-      <img src={img} alt={name} />
-      <div>
-        <Button text="detalle" onClickFn={() => navigate(`/campers/${slug}`)} />
+    <div className="CamperCard">
+      <div className="CamperCard__img-wrapper">
+        <img src={img} alt={img} className="w-100" />
       </div>
-
-      {/* <p>{description}</p>
-      <p>Equipment: {equipment}</p>
-      <p>Compatible vehicles: {compatibleVehicles.join(", ")}</p>
-      <p>Price: {price} €</p> */}
+      <div className="CamperCard__content">
+        <h2 className="CamperCard__title">{name}</h2>
+        <p className="CamperCard__category">Category: {category}</p>
+        <Button
+          text="Equipación"
+          onClickFn={() => navigate(`/campers/${slug}`)}
+          className="CamperCard__button"
+        />
+      </div>
     </div>
   );
 };

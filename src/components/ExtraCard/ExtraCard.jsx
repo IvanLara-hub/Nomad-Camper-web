@@ -6,10 +6,12 @@ const ExtraCard = ({ name, img, description, price, onClickFn, selected }) => {
       onClick={onClickFn}
       className={`ExtraCard ${selected ? "selected" : ""}`}
     >
-      <img src={img} style={{ width: "100px" }} alt={name} />
-      <h1>{name}</h1>
-      <p>{description}</p>
-      <p>{price}</p>
+      <img src={img} alt={name} />
+      <div className="ExtraCard__content">
+        <h2>{name}</h2>
+        <p className="text-start">{description}</p>
+        <p className="text-start">{price}</p>
+      </div>
     </div>
   );
 };

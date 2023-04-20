@@ -1,0 +1,84 @@
+.home-caption {
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home-caption-text-content {
+  display: flex;
+  color: white !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  padding: 30px;
+  padding-top: 100px;
+  margin-left: -50px;
+}
+
+.home-caption-text-content img {
+  height: 100px;
+  width: auto;
+}
+
+.home-caption-text-content h1,
+.home-caption-text-content p {
+  color: white;
+  text-align: center;
+}
+
+.main-home-content {
+  height: 400px;
+  position: relative;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-home-content-text {
+  width: 50%;
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-home-content-text p {
+  text-align: left;
+  margin-left: 60px;
+}
+
+.main-home-content-text Button {
+  margin: 0 auto;
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.main-home-content-images {
+  background-image: url("./../../assets/VanLogo.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  border: 5px solid white;
+  width: 40%;
+  height: 400px;
+  position: relative;
+  margin-left: 50px;
+}
+
+.main-home-content-images-1 {
+  background-image: url("./../../assets/home-2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  border: 5px solid white;
+  width: 40%;
+  height: 400px;
+  position: relative;
+  margin-left: 50px;
+}

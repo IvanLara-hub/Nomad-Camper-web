@@ -1,0 +1,20 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.bg-app-primary {
+  background-color: #2b3333;
+}
+
+.text-small {
+  font-size: 18px;
+}
+
+.logo {
+  font-weight: 100;
+  letter-spacing: 5px;
+}
+
+.nav-item {
+  font-weight: 200;
+}
