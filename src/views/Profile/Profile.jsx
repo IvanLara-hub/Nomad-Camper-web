@@ -40,13 +40,12 @@ const Profile = () => {
             />
           </div>
           <div className="form-group-new">
-            <Button text="Go to Campers" onClickFn={handleClick} />
+            <Button text="ir a camperizaciones" onClickFn={handleClick} />
           </div>
         </Card.Body>
       </Card>
     </div>
   );
-  
 };
 
 export default Profile;

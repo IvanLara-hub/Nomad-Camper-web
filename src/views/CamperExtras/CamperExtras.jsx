@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import ExtraCard from "../../components/ExtraCard/ExtraCard";
 import { getCamperBySlug } from "../../services/CampersService";
-import "./CamperExtras.css"
+import "./CamperExtras.css";
 
 const CamperExtras = () => {
   const [camper, setCamper] = useState(null);
@@ -71,18 +71,18 @@ const CamperExtras = () => {
               );
             })}
         </div>
+
+        <h2>Total: {finalPrice}€</h2>
+
+        <Button
+          text="Ir a Presupuesto"
+          onClickFn={() =>
+            navigate("/budget", {
+              state: { camper: camper, selectedExtras: selectedExtras },
+            })
+          }
+        />
       </div>
-
-      <h2>Total: {finalPrice}€</h2>
-
-      <Button
-        text="Ir a Presupuesto"
-        onClickFn={() =>
-          navigate("/budget", {
-            state: { camper: camper, selectedExtras: selectedExtras },
-          })
-        }
-      />
     </div>
   );
 };

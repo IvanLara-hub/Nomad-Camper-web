@@ -96,3 +96,20 @@
 .testimonial-quote.right cite {
   text-align: right;
 }
+.fa {
+  font-size: 24px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.checked {
+  color: orange;
+}
+.bi-star-fill {
+  color: #ffc107;
+  }
+  
+  .bi-star {
+  color: #ddd;
+  cursor: pointer;
+  }

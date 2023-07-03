@@ -3,6 +3,7 @@
   margin: 0 auto;
 }
 
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -17,7 +18,7 @@
 
 .ExtraCard {
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 35px;
   overflow: hidden;
 }
 

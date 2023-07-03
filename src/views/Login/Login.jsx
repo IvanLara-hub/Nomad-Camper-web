@@ -50,7 +50,7 @@ const Login = () => {
     },
   });
 
-  return (  
+  return (
     <div className="Login-bg">
       <div className="Login">
         <h1>Login</h1>

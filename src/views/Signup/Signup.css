@@ -13,15 +13,13 @@
 }
 
 .signup-card {
-
-  max-width: 800px; /* ancho máximo aumentado */
-  margin: 0 auto;
-  padding: 2rem 4rem;
+  margin: auto;
+  padding: 2rem 6rem;
 
   background-color: #fafafa;
   border-radius: 50px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-  
+
   max-width: 100%;
   margin: 0 auto;
   font-family: Arial, sans-serif;
@@ -40,9 +38,18 @@
 }
 
 .signup-card__title {
-  font-size: 2rem;
+  font-size: 20px;
   color: #40514e;
-  margin: 0;
+  margin-bottom: 20px;
+}
+.signup-card__body {
+  font-size: 16px; /* tamaño de fuente */
+  color: #333; /* color del texto */
+
+  padding: 20px; /* espacio interno */
+  margin-top: -10px; /* espacio externo */
+  border-radius: 30px; /* borde redondeado */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* sombra */
 }
 
 .signup-form {
@@ -63,7 +70,7 @@
 .signup-form input[type="text"],
 .signup-form input[type="email"],
 .signup-form input[type="password"] {
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   padding: 0.5rem;
   font-size: 1rem;
@@ -90,4 +97,3 @@
   color: #fff;
   border-color: #d9b38c;
 }
-

@@ -30,12 +30,13 @@ const Home = () => {
       <div className="main-home-content">
         <div className="main-home-content-text">
           <p>
-            En Nomad Camper nos dedicamos a transformar furgonetas en auténticas
-            casas sobre ruedas. Ofrecemos diferentes opciones de camperización
-            para adaptarnos a las necesidades de cada cliente, desde la
-            camperización básica hasta diseños personalizados a medida.
+            "En Nomad Camper nos dedicamos a transformar furgonetas en
+            auténticas casas sobre ruedas. Ofrecemos diferentes opciones de
+            camperización para adaptarnos a las necesidades de cada cliente,
+            desde la camperización básica hasta diseños personalizados a
+            medida."
           </p>
-          <Button text="Ver campers" onClickFn={handleNavigate} />
+          <Button text="Ver camperizaciones" onClickFn={handleNavigate} />
         </div>
         <div className="main-home-content-images">
           <div className="main-home-content-img"></div>
@@ -57,13 +58,30 @@ const Home = () => {
         </div>
       </div>
 
-      <p>
+      <div className="main-home-content mb-5">
+        <div className="main-home-content-text">
+          <p>
+            "Con nuestros servicios de alta calidad y atención al detalle, puede
+            estar seguro de que la tranquilidad de viajar será su única
+            preocupación. Déjenos ocuparnos de la transformación de su furgoneta
+            y disfrute de la libertad y la aventura de viajar a su aire."
+          </p>
+        </div>
+        <div className="main-home-content-images-2">
+          <div className="main-home-content-img"></div>
+          <div className="main-home-content-img"></div>
+        </div>
+      </div>
+
+      <p className="py-3">
         Además, en nuestro taller contamos con un equipo de profesionales
         altamente capacitados que se encargan de todos los aspectos de la
         camperización, desde la instalación de sistemas eléctricos hasta la
         fabricación de muebles y accesorios.
       </p>
-      <Footer />
+      <div className="container-footer">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -1,90 +1,128 @@
 import React from "react";
 import "./Footer.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faTwitter,
+  faVimeoV,
+  faGooglePlusG,
+} from "@fortawesome/free-brands-svg-icons";
+import { logout } from "../../stores/AccessTokenStore";
+
 const Footer = () => {
   return (
-    <div>
-      <footer className="main-footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="row">
-              <div className="col-lg-4 col-md-6 col-sm-12 footer-column">
-                <div className="logo-widget footer-widget">
-                  <figure className="logo-box">
-                    <a href="#">
-                      <img src="./images/logo-white.png" alt="" />
-                    </a>
-                  </figure>
-                  <div className="text">
-                    <p>
-                      ¡Descubre nuevas aventuras con nosotros! Somos expertos en
-                      camperización de vehículos y te ofrecemos las mejores
-                      soluciones para que disfrutes de tus escapadas al aire
-                      libre. ¡Contacta con nosotros ahora y vive la experiencia
-                      camper!.
-                    </p>
-                  </div>
-                  <ul className="footer-social">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-vimeo-v"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-google-plus-g"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+    <footer className="bg-dark text-white py-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4 mb-4 mb-md-0">
+            <div className="logo-widget">
+              <figure className="logo-box">
+                <img
+                  src="https://www.soulcamper.com/wp-content/uploads/elementor/thumbs/icono-equipamiento-occn4zs8h7iz62dorekfalw2097zfe4bb9q2d58548.png"
+                  alt="icono-equipamiento"
+                  width="20"
+                  height="1 0"
+                />
+                <img
+                  src="https://www.soulcamper.com/wp-content/uploads/elementor/thumbs/icono-para_todos-occn54hffdpes46uzylk52pcz6kthvmyzwzhrj1694.png"
+                  alt="icono-para_todos"
+                  width="50"
+                  height="50"
+                />
+                <img
+                  src="https://www.soulcamper.com/wp-content/uploads/elementor/thumbs/icono-hogar-occn596mdjvue6018imozjiny3xnkd5mok8x5wu7e0.png"
+                  alt="icono-hogar"
+                  width="50"
+                  height="50"
+                />
+                <img
+                  src="https://www.soulcamper.com/wp-content/uploads/elementor/thumbs/icono-satisfaccion-occn4u57c7b98elvoc4nvnbafxzs57hxaht5hhgi5k.png"
+                  alt="icono-satisfaccion"
+                  width="50"
+                  height="50"
+                />
+              </figure>
+              <div className="text">
+                <p>
+                  ¡Descubre nuevas aventuras con nosotros! Somos expertos en
+                  camperización de vehículos y te ofrecemos las mejores
+                  soluciones para que disfrutes de tus escapadas al aire libre.
+                </p>
               </div>
-              <div className="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
-                <div className="service-widget footer-widget"></div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-sm-12 footer-widget">
-                <div className="contact-widget footer-widget">
-                  <div className="footer-title">Contacto</div>
-                  <div className="text">
-                    <p>info@camperslocas.com</p>
-                  </div>
-                </div>
-              </div>
+              <ul className="list-unstyled list-inline social-media">
+                <li className="list-inline-item">
+                  <a href="#">
+                    <FontAwesomeIcon icon={faFacebookF} />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a href="#">
+                    <FontAwesomeIcon icon={faTwitter} />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a href="#">
+                    <FontAwesomeIcon icon={faVimeoV} />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a href="#">
+                    <FontAwesomeIcon icon={faGooglePlusG} />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-md-4 mb-4 mb-md-0">
+            <div className="service-widget">
+              <h4 className="mb-4">Nuestros servicios</h4>
+              <ul className="list-unstyled">
+                <li>
+                  <a href="#">Camperización de vehículos</a>
+                </li>
+                <li>
+                  <a href="#">Mantenimiento y reparación</a>
+                </li>
+                <li>
+                  <a href="#">Alquiler de autocaravanas</a>
+                </li>
+                <li>
+                  <a href="#">Venta de accesorios</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="contact-widget">
+              <h4 className="mb-4">Contacto</h4>
+              <p>info@NomadCamper.com</p>
             </div>
           </div>
         </div>
-      </footer>
-      <div className="footer-bottom">
+      </div>
+      <div className="footer-bottom py-3">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-12 column">
-              <div className="copyright">
-                <a href="#">Copyright</a> &copy; 2023 All Right Reserved
-              </div>
+            <div className="col-md-6 text-center text-md-start">
+              <p className="mb-0">
+                © 2023 Nomad Camper. Todos los derechos reservados.
+              </p>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 column">
-              <ul className="footer-nav">
-                <li>
-                  <a href="#">Terms of Service</a>
+            <div className="col-md-6 text-center text-md-end">
+              <ul className="list-unstyled list-inline">
+                <li className="list-inline-item">
+                  <a href="#">Términos y condiciones</a>
                 </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
+                <li className="list-inline-item">
+                  <a href="#">Política de privacidad</a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

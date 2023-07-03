@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
+import { logout } from "../../stores/AccessTokenStore";
 import logoImg from "./../../assets/logo.png";
 import "./Navbar.css";
 
@@ -10,15 +11,18 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-app-primary" data-bs-theme="">
       <div className="container-fluid">
-      <Link
-  className="navbar-brand d-flex align-items-center justify-content-center"
-  to="/"
->
-  <img src={logoImg} alt="logo" style={{ width: "40px" }} />
-  <small className="logo text-small ps-2 font-monospace" style={{ color: "white" }}>
-    Nomad Camper
-  </small>
-</Link>
+        <Link
+          className="navbar-brand d-flex align-items-center justify-content-center"
+          to="/"
+        >
+          <img src={logoImg} alt="logo" style={{ width: "40px" }} />
+          <small
+            className="logo text-small ps-2 font-monospace"
+            style={{ color: "white" }}
+          >
+            Nomad Camper
+          </small>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -44,7 +48,7 @@ const Navbar = () => {
                 }
                 to="/login"
               >
-                Login
+                Iniciar sesión
               </NavLink>
             </li>
             <li className="nav-item">
@@ -64,7 +68,7 @@ const Navbar = () => {
                 }
                 to="/campers"
               >
-                Campers
+                Camperizaciones
               </NavLink>
             </li>
             <li className="nav-item">
@@ -87,16 +91,28 @@ const Navbar = () => {
                 Vuestras valoraciones
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active" : ""}`
-                }
-                to="/signup"
-              >
-                Registrarse
-              </NavLink>
-            </li>
+            {!currentUser && (
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active" : ""}`
+                  }
+                  to="/signup"
+                >
+                  Registrarse
+                </NavLink>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) => `nav-link`}
+                  onClick={logout}
+                >
+                  Logout
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>

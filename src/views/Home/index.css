@@ -4,18 +4,19 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  display: flex;
 }
 
 .home-caption-text-content {
   display: flex;
-  color: white !important;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 600px;
   padding: 30px;
-  padding-top: 100px;
-  margin-left: -50px;
+  margin: auto;
+  color: white !important;
 }
 
 .home-caption-text-content img {
@@ -30,11 +31,12 @@
 }
 
 .main-home-content {
-  height: 400px;
+  height: 439px;
   position: relative;
   background-color: white;
   display: flex;
   flex-direction: row;
+  padding-top: 30px;
 }
 
 .main-home-content-text {
@@ -72,6 +74,18 @@
 
 .main-home-content-images-1 {
   background-image: url("./../../assets/home-2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  border: 5px solid white;
+  width: 40%;
+  height: 400px;
+  position: relative;
+  margin-left: 50px;
+}
+.main-home-content-images-2 {
+  background-image: url("./../../images/home-3.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

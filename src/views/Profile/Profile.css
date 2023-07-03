@@ -9,8 +9,7 @@
   align-items: center;
 }
 
-.profile-card-new {
-  
+.profile-card-new.card {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.9);
   padding: 2rem;
   max-width: 500px;
@@ -19,13 +18,14 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 0;
+  margin: auto;
   padding-top: 0;
-  opacity: 0.9;
+  opacity: 0.8;
+  border-radius: 50px;
+  background-color: #f7efe4;
 }
 
-
-.profile-card__header-new {
+.profile-card__header-new.card-header {
   background-color: transparent;
   color: #24292a;
   padding: 1rem;
@@ -36,7 +36,7 @@
   margin: 0;
 }
 
-.profile-card__body-new {
+.profile-card__body-new.card-header {
   padding: 2rem;
   flex: 1;
   display: flex;

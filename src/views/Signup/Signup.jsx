@@ -1,12 +1,12 @@
 import { useFormik } from "formik";
-import { useContext } from "react";
-import AuthContext from "../../contexts/AuthContext";
 import Input from "../../components/Input/Input";
 import FormControl from "../../components/FormControl/FormControl";
+import { createUser } from "../../services/UserService";
 import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 
 function SignupForm() {
-  const { signUp } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -15,7 +15,7 @@ function SignupForm() {
       email: "",
       username: "",
       password: "",
-      repeatPassword: "",
+      confirmPassword: "",
     },
     validate: (values) => {
       const errors = {};
@@ -46,136 +46,146 @@ function SignupForm() {
         errors.password = "La contraseña debe tener al menos 6 caracteres";
       }
 
-      if (values.password !== values.repeatPassword) {
-        errors.repeatPassword = "Las contraseñas no coinciden";
+      if (values.password !== values.confirmPassword) {
+        errors.confirmPassword = "Las contraseñas no coinciden";
       }
 
       return errors;
     },
     onSubmit: (values) => {
-      signUp(values);
+      createUser(values)
+        .then(() => {
+          navigate("/login");
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
   });
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
     formik;
 
+  console.log(errors);
+
   return (
     <div className="signup-card-container">
-    <div className="signup-card">
-      <div className="signup-card__header">
-        <h2 className="signup-card__title">Crear cuenta</h2>
-      </div>
-      <div className="signup-card__body">
-        <form onSubmit={handleSubmit} className="signup-form">
-          <FormControl
-            text="Nombre"
-            error={touched.firstName && errors.firstName}
-            htmlFor="firstname"
-          >
-            <Input
-              label="Nombre"
-              id="firstName"
-              name="firstName"
-              type="text"
-              value={values.firstName}
+      <div className="signup-card">
+        <div className="signup-card__header">
+          <h2 className="signup-card__title">Crear cuenta</h2>
+          <img src="./images/logo-negro.png" style={{ width: "100px" }}></img>
+          <small className="logo text-small pt-2 pb-3">Nomad Camper</small>
+        </div>
+        <div className="signup-card__body">
+          <form onSubmit={handleSubmit} className="signup-form">
+            <FormControl
+              text="Nombre"
               error={touched.firstName && errors.firstName}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              required
-            />
-          </FormControl>
-          <FormControl
-            text="Apellidos"
-            error={touched.lastName && errors.lastName}
-            htmlFor="lastname"
-          >
-            <Input
-              label="Apellidos"
-              id="lastName"
-              name="lastName"
-              type="text"
-              value={values.lastName}
+              htmlFor="firstname"
+            >
+              <Input
+                label="Nombre"
+                id="firstName"
+                name="firstName"
+                type="text"
+                value={values.firstName}
+                error={touched.firstName && errors.firstName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+              />
+            </FormControl>
+            <FormControl
+              text="Apellidos"
               error={touched.lastName && errors.lastName}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              required
-            />
-          </FormControl>
-          <FormControl
-            text="Email"
-            error={touched.email && errors.email}
-            htmlFor="email"
-          >
-            <Input
-              label="Email"
-              id="email"
-              name="email"
-              type="email"
-              value={values.email}
+              htmlFor="lastname"
+            >
+              <Input
+                label="Apellidos"
+                id="lastName"
+                name="lastName"
+                type="text"
+                value={values.lastName}
+                error={touched.lastName && errors.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+              />
+            </FormControl>
+            <FormControl
+              text="Email"
               error={touched.email && errors.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              required
-            />
-          </FormControl>
-          <FormControl
-            text="Nombre de usuario"
-            error={touched.username && errors.username}
-            htmlFor="username"
-          >
-            <Input
-              label="Nombre de usuario"
-              id="username"
-              name="username"
-              type="text"
-              value={values.username}
+              htmlFor="email"
+            >
+              <Input
+                label="Email"
+                id="email"
+                name="email"
+                type="email"
+                value={values.email}
+                error={touched.email && errors.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+              />
+            </FormControl>
+            <FormControl
+              text="Nombre de usuario"
               error={touched.username && errors.username}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              required
-            />
-          </FormControl>
+              htmlFor="username"
+            >
+              <Input
+                label="Nombre de usuario"
+                id="username"
+                name="username"
+                type="text"
+                value={values.username}
+                error={touched.username && errors.username}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+              />
+            </FormControl>
 
-          <FormControl
-            text="Contraseña"
-            error={touched.password && errors.password}
-            htmlFor="password"
-          >
-            <Input
-              label="Contraseña"
-              id="password"
-              name="password"
-              type="password"
-              value={values.password}
+            <FormControl
+              text="Contraseña"
               error={touched.password && errors.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              required
-            />
-          </FormControl>
-          <FormControl
-            text="Repetir contraseña"
-            error={touched.repeatPassword && errors.repeatPassword}
-            htmlFor="repeatpassword"
-          >
-            <Input
-              label="Repetir contraseña"
-              id="repeatPassword"
-              name="repeatPassword"
-              type="password"
-              value={values.repeatPassword}
-              error={touched.repeatPassword && errors.repeatPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              required
-            />
-          </FormControl>
+              htmlFor="password"
+            >
+              <Input
+                label="Contraseña"
+                id="password"
+                name="password"
+                type="password"
+                value={values.password}
+                error={touched.password && errors.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+              />
+            </FormControl>
+            <FormControl
+              text="Repetir contraseña"
+              error={touched.confirmPassword && errors.confirmPassword}
+              htmlFor="confirmPassword"
+            >
+              <Input
+                label="Repetir contraseña"
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                value={values.confirmPassword}
+                error={touched.confirmPassword && errors.confirmPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+              />
+            </FormControl>
 
-          <button type="submit">Crear cuenta</button>
-        </form>
+            <button type="submit">Crear cuenta</button>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

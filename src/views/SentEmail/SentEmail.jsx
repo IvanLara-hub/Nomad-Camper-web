@@ -9,13 +9,16 @@ const SentEmail = () => {
   useEffect(() => {
     setTimeout(() => {
       navigate("/");
-    }, 15000);
+    }, 95000);
   }, []);
 
   return (
     <div className="sent-email">
       <h1>¡Correo electrónico enviado!</h1>
-      <img src="/images/camper-van.jpg" alt="Camper van" />
+      <img src="/images/logo-negro.png" style={{ width: "100px" }}></img>
+      <small className="logo text-small pt-2 pb-3" style={{ textAlign: "center" }}>
+  Nomad Camper
+</small>
       <p>
         Revisa tu bandeja de entrada para ver el correo electrónico que hemos
         enviado con tu presupuesto.

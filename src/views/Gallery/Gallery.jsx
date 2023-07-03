@@ -1,5 +1,6 @@
 import "./Gallery.css";
 
+
 const Gallery = () => {
   const images = [
     

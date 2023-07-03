@@ -32,7 +32,7 @@ const CamperDetail = () => {
               </Carousel.Item>
             ))}
           </Carousel>
-  
+              
           <div className="CamperDetailCard-footer">
             <div>
               <ul className="equip-list">
@@ -41,7 +41,7 @@ const CamperDetail = () => {
                 ))}
               </ul>
   
-              <p>Price: {camper.price} €</p>
+              <p>Precio: {camper.price} €</p>
             </div>
             <div>
               <Button
