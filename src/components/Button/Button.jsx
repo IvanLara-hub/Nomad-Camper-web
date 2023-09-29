@@ -1,4 +1,4 @@
-import "./button.css";
+import "./component-button.css";
 
 const Button = ({ text, onClickFn }) => {
   return (
